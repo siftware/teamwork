@@ -10,4 +10,25 @@ class Time extends AbstractObject {
 
     protected $endpoint = 'time_entries';
 
+    /**
+     * GET /time.json
+     *
+     * @return mixed
+     */
+    public function all($args = null)
+    {
+        $this->areArgumentsValid($args, ['page']);
+
+        return $this->client->get($this->endpoint, $args)->response();
+    }
+
+    /**
+     * GET /time.json
+     *
+     * @return mixed
+     */
+    public function allRaw()
+    {
+        return $this->client->get($this->endpoint)->rawResponse();
+    }
 }
