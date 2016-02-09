@@ -12,6 +12,17 @@ class Project extends AbstractObject {
     protected $endpoint = 'projects';
 
     /**
+     * Get All Projects including archived ones
+     * GET /projects.json?status=ALL
+     *
+     * @return  mixed
+     */
+    public function everything()
+    {
+        return $this->client->buildRequest('projects.json', 'GET', ['status' => 'ALL'])->response();
+    }
+
+    /**
      * Get Project Activity
      * GET /projects/{project_id}/activity.json
      *
