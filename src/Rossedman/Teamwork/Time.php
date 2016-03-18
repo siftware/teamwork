@@ -17,7 +17,7 @@ class Time extends AbstractObject {
      */
     public function all($args = null)
     {
-        $this->areArgumentsValid($args, ['page']);
+        $this->areArgumentsValid($args, ['page', 'updatedAfterDate']);
 
         return $this->client->get($this->endpoint, $args)->response();
     }
