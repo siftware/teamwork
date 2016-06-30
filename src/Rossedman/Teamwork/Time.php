@@ -30,8 +30,8 @@ class Time extends AbstractObject {
      *
      * @return mixed
      */
-    public function allRaw()
+    public function allRaw($args = null)
     {
-        return $this->client->get($this->endpoint)->rawResponse();
+        return $this->client->get($this->endpoint, $args)->rawResponse();
     }
 }
