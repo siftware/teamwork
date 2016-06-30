@@ -17,7 +17,10 @@ class Time extends AbstractObject {
      */
     public function all($args = null)
     {
-        $this->areArgumentsValid($args, ['page']);
+        $this->areArgumentsValid($args, [
+            'page',
+            'updatedAfterDate'
+        ]);
 
         return $this->client->get($this->endpoint, $args)->response();
     }
@@ -27,8 +30,13 @@ class Time extends AbstractObject {
      *
      * @return mixed
      */
-    public function allRaw()
+    public function allRaw($args = null)
     {
-        return $this->client->get($this->endpoint)->rawResponse();
+        $this->areArgumentsValid($args, [
+            'page',
+            'updatedAfterDate'
+        ]);
+        
+        return $this->client->get($this->endpoint, $args)->rawResponse();
     }
 }
