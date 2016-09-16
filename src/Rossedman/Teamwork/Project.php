@@ -184,5 +184,8 @@ class Project extends AbstractObject {
         return $this->client->get("$this->endpoint/$this->id/tasklists", $args)->response();
     }
 
-
+    public function totals($args = null)
+    {
+        return $this->client->get("{$this->endpoint/$this->id/time/total", $args)->response();
+    }
 }
