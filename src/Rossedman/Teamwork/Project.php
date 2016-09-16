@@ -186,6 +186,6 @@ class Project extends AbstractObject {
 
     public function totals($args = null)
     {
-        return $this->client->get("{$this->endpoint/$this->id/time/total", $args)->response();
+        return $this->client->get("{$this->endpoint}/{$this->id}/time/total", $args)->response();
     }
 }
